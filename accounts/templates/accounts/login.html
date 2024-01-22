@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="d-flex justify-content-center">	
+	<div class="form-signin justify-content-center">	
+		<form method="POST">
+			<h3>Log In</h3>
+			<hr>
+			{% csrf_token %}
+			{% bootstrap_form form %}
+			<div style="margin-top: 2rem">
+				<p>New user? <a href="{% url 'accounts:signup' %}">Click to sign up!</a></p>
+				<p>Forgot your password? <a href="{% url 'accounts:password_reset' %}">Click to reset it</a></p>
+			</div>
+			<input type="submit" class="btn btn-primary" style="margin-top: 1rem" value="Login">			
+		</form>	
+	</div>
+</div>
+
+{% endblock content %}
+
